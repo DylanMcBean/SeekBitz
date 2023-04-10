@@ -258,7 +258,7 @@ void Dialog::identifySystem() {
     rootDir = "C:\\";
 #elif __linux__
     enqueueMessage("Running on Linux Machine");
-    rootDir = "/mnt/extrn/primary/Root/Productive/Programming/QT6/";
+    rootDir = "/";
 #elif __APPLE__
     enqueueMessage("Running on macOS Machine");
     rootDir = "/";
