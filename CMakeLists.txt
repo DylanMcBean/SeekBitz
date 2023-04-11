@@ -20,6 +20,8 @@ set(PROJECT_SOURCES
         dialog.cpp
         dialog.h
         dialog.ui
+        indexhelper.cpp
+        indexhelper.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

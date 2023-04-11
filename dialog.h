@@ -2,11 +2,6 @@
 #define DIALOG_H
 
 #include <QDialog>
-#include <QThread>
-#include <QMutex>
-#include <QtSql/QSqlDatabase>
-#include <QQueue>
-#include <QWaitCondition>
 
 namespace Ui {
 class Dialog;
@@ -22,25 +17,12 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+    void onIndexingFinished();
+    void updateLabel(const QString& text);
 
 private:
-    void startIndex();
-    void createDatabase();
-    void printMessages();
-    void identifySystem();
-    void enqueueMessage(const QString &message);
-    int indexFileSystem(QSqlDatabase db, const QString& rootDir, qint64 parent_id);
-
     Ui::Dialog *ui;
-    QThread *indexThread;
-    QThread *printThread;
-    QSqlDatabase db;
-    QMutex mutex;
-    QQueue<QString> messageQueue;
-    QWaitCondition messageQueueNotEmpty;
-    QString rootDir;
-
-    bool isDone;
+    bool isDone = false;
 };
 
 #endif // DIALOG_H
